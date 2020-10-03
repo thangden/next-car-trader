@@ -12,7 +12,7 @@ export default async function login(req: NextApiRequest, res: NextApiResponse) {
 			req.body.email,
 		]);
 		if (!person) {
-			res.status(404).json({ message: "Couldn't find your account" });
+			res.status(403).json({ message: "Couldn't find your account" });
 			return;
 		}
 		compare(req.body.password, person.password, function (err, result) {

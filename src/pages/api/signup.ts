@@ -14,7 +14,7 @@ export default async function signup(
 		]);
 		if (person) {
 			res
-				.status(404)
+				.status(400)
 				.json({ message: 'User with email address already exists' });
 		} else {
 			hash(req.body.password, 10, async function (err, hash) {
@@ -27,7 +27,7 @@ export default async function signup(
 
 				const person = await db.all('SELECT id, name, email FROM person');
 
-				res.status(200).json(person);
+				res.status(201).json(person);
 			});
 		}
 	} else {

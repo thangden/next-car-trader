@@ -1,7 +1,7 @@
 {
-	"name": "type-next",
+	"name": "next-car-trader",
 	"version": "0.1.0",
-	"private": true,
+	"private": "false",
 	"scripts": {
 		"dev": "node ./db-test.js && next dev",
 		"build": "next build",
@@ -28,5 +28,6 @@
 		"@types/react": "^16.9.49",
 		"json-server": "^0.16.1",
 		"typescript": "^4.0.2"
-	}
+	},
+	"license": "MIT"
 }
