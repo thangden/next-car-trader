@@ -1,8 +1,20 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
 export default function Index() {
-	return <h1>Index page</h1>;
+	return (
+		<div>
+			<h1>Index page</h1>
+			<Link href="/people">
+				<a>People</a>
+			</Link>
+			<hr />
+			<Link href="/vehicles">
+				<a>Vehicles</a>
+			</Link>
+		</div>
+	);
 }
 
 // export default function Home() {
