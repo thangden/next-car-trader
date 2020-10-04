@@ -3,13 +3,14 @@
 	"version": "0.1.0",
 	"private": "false",
 	"scripts": {
-		"dev": "node ./db-test.js && next dev",
-		"build": "next build",
+		"dev": "node ./db-migration.js && next dev",
+		"build": "node ./db-migration.js && next build",
 		"start": "next start",
 		"mock-server": "json-server --watch ./db.json -p 4001 -d 3000"
 	},
 	"dependencies": {
 		"@material-ui/core": "^4.11.0",
+		"@material-ui/icons": "^4.9.1",
 		"bcrypt": "^5.0.0",
 		"cookie": "^0.4.1",
 		"isomorphic-unfetch": "^3.0.0",
@@ -18,7 +19,8 @@
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
 		"react-hook-form": "^6.8.6",
-		"sqlite": "3.0.3"
+		"sqlite": "^4.0.15",
+		"sqlite3": "^5.0.0"
 	},
 	"devDependencies": {
 		"@types/bcrypt": "^3.0.0",
