@@ -13,6 +13,10 @@ export default function Index() {
 			<Link href="/vehicles">
 				<a>Vehicles</a>
 			</Link>
+			<hr />
+			<Link href="/products">
+				<a>Products</a>
+			</Link>
 		</div>
 	);
 }
