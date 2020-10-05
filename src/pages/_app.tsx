@@ -10,7 +10,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import HomeIcon from '@material-ui/icons/Home';
 
 export default function MyApp(props: AppProps) {
 	const { Component, pageProps } = props;
@@ -39,7 +39,7 @@ export default function MyApp(props: AppProps) {
 				<AppBar position="fixed">
 					<Toolbar variant="dense">
 						<IconButton edge="start" color="inherit" aria-label="menu">
-							<MenuIcon />
+							<HomeIcon />
 						</IconButton>
 						<Typography variant="h6">Products</Typography>
 					</Toolbar>
