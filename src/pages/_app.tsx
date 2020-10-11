@@ -4,13 +4,21 @@ import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../theme';
-import { AppProps } from 'next/dist/next-server/lib/router/router';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import IconButton from '@material-ui/core/IconButton';
-import HomeIcon from '@material-ui/icons/Home';
+import Router, { AppProps } from 'next/dist/next-server/lib/router/router';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
+NProgress.configure({ showSpinner: false })
+
+Router.events.on('routeChangeStart', () => {
+	NProgress.start();
+})
+Router.events.on('routeChangeComplete', () => {
+	NProgress.done();
+})
+Router.events.on('routeChangeError', () => {
+	NProgress.done();
+})
 
 export default function MyApp(props: AppProps) {
 	const { Component, pageProps } = props;
@@ -36,17 +44,7 @@ export default function MyApp(props: AppProps) {
 			<ThemeProvider theme={theme}>
 				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
 				<CssBaseline />
-				<AppBar position="fixed">
-					<Toolbar variant="dense">
-						<IconButton edge="start" color="inherit" aria-label="menu">
-							<HomeIcon />
-						</IconButton>
-						<Typography variant="h6">Products</Typography>
-					</Toolbar>
-				</AppBar>
-				<Box marginTop={8}>
-					<Component {...pageProps} />
-				</Box>
+				<Component {...pageProps} />
 			</ThemeProvider>
 		</React.Fragment>
 	);
