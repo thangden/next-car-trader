@@ -18,8 +18,12 @@ export default function Index() {
 				<a>Products</a>
 			</Link>
 			<hr />
-			<Link href="/server-site">
-				<a>Server Site</a>
+			<Link href="/server-side">
+				<a>Get Server Side Props</a>
+			</Link>
+			<hr />
+			<Link href="/gssp">
+				<a>ENV Variables & Runtime Configuration</a>
 			</Link>
 		</div>
 	);

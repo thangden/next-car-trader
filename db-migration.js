@@ -8,6 +8,6 @@ const sqlite3 = require('sqlite3');
 	});
 
 	await db.migrate({ force: true });
-	const products = await db.all('select * from product');
-	console.log('products', products);
+	const drivers = await db.all('select * from driver');
+	console.log('drivers', drivers);
 })();

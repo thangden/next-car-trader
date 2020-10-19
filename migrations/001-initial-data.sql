@@ -19,6 +19,12 @@ CREATE TABLE Product (
   price INTEGER,
   imageUrl TEXT
 );
+CREATE TABLE Driver (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  titles number
+);
+
 INSERT INTO Person
   (name, email)
 VALUES
@@ -155,7 +161,33 @@ VALUES
     999,
     '/products/noimage.jpg'
   );
+
+INSERT INTO Driver (name, titles) VALUES ('Michael Schumacher', 7);
+INSERT INTO Driver (name, titles) VALUES ('Lewis Hamilton', 6);
+INSERT INTO Driver (name, titles) VALUES ('Sebastian Vettel', 4);
+INSERT INTO Driver (name, titles) VALUES ('Fernando Alonso', 2);
+INSERT INTO Driver (name, titles) VALUES ('Nico Rosberg', 1);
+INSERT INTO Driver (name, titles) VALUES ('Kimi Räikkönen', 1);
+INSERT INTO Driver (name, titles) VALUES ('Valtteri Bottas', 0);
+INSERT INTO Driver (name, titles) VALUES ('Charles Leclerc', 0);
+INSERT INTO Driver (name, titles) VALUES ('Antonio Giovinazzi', 0);
+INSERT INTO Driver (name, titles) VALUES ('Pierre Gasly', 0);
+INSERT INTO Driver (name, titles) VALUES ('Daniil Kvyat', 0);
+INSERT INTO Driver (name, titles) VALUES ('Romain Grosjean', 0);
+INSERT INTO Driver (name, titles) VALUES ('Kevin Magnussen', 0);
+INSERT INTO Driver (name, titles) VALUES ('Lando Norris', 0);
+INSERT INTO Driver (name, titles) VALUES ('Carlos Sainz Jr.', 0);
+INSERT INTO Driver (name, titles) VALUES ('Sergio Pérez', 0);
+INSERT INTO Driver (name, titles) VALUES ('Lance Stroll', 0);
+INSERT INTO Driver (name, titles) VALUES ('Alexander Albon', 0);
+INSERT INTO Driver (name, titles) VALUES ('Max Verstappen', 0);
+INSERT INTO Driver (name, titles) VALUES ('Daniel Ricciardo', 0);
+INSERT INTO Driver (name, titles) VALUES ('Esteban Ocon', 0);
+INSERT INTO Driver (name, titles) VALUES ('Nicholas Latifi', 0);
+INSERT INTO Driver (name, titles) VALUES ('George Russell', 0);
+
 -- DOWN
 DROP TABLE Person;
 DROP TABLE Vehicle;
 DROP TABLE Product;
+DROP TABLE Driver;

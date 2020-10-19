@@ -1,12 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import sqlite from 'sqlite';
 import { hash } from 'bcrypt';
+import { openDB } from '../../openDB';
 
 export default async function signup(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
-	const db = await sqlite.open('./mydb.sqlite');
+	const db = await openDB();
 
 	if (req.method === 'POST') {
 		const person = await db.get('SELECT * FROM person where email = ?', [
@@ -22,12 +22,13 @@ export default async function signup(
 				const statement = await db.prepare(
 					'INSERT INTO person (name, email, password) values (?, ?, ?)'
 				);
-				const result = await statement.run(req.body.name, req.body.email, hash);
-				result.finalize();
+				const { lastID } = await statement.run(
+					req.body.name,
+					req.body.email,
+					hash
+				);
 
-				const person = await db.all('SELECT id, name, email FROM person');
-
-				res.status(201).json(person);
+				res.status(201).json({ ...req.body, id: lastID });
 			});
 		}
 	} else {
