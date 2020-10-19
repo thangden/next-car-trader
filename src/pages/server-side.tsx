@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { Product } from '../../model/Product';
 import { openDB } from '../openDB';
 
-export interface ServerSiteProps {
+export interface ServerSideProps {
 	products: Product[];
 }
 
-export default function ServerSite({ products }: ServerSiteProps) {
+export default function ServerSide({ products }: ServerSideProps) {
 	return (
 		<div>
 			<Link href="/team"><a>Team</a></Link>

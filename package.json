@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "node ./db-migration.js && next dev",
 		"build": "node ./db-migration.js && next build",
-		"start": "next start",
+		"export": "node ./db-migration.js && next export",
+		"start": "cross-env MY_SECRET=9696 MY_STEP=start next start",
 		"mock-server": "json-server --watch ./db.json -p 4001 -d 3000"
 	},
 	"dependencies": {
@@ -16,6 +17,7 @@
 		"isomorphic-unfetch": "^3.0.0",
 		"jsonwebtoken": "^8.5.1",
 		"next": "9.5.3",
+		"next-connect": "^0.9.0",
 		"nprogress": "^0.2.0",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
@@ -30,6 +32,8 @@
 		"@types/node": "^14.10.1",
 		"@types/nprogress": "^0.2.0",
 		"@types/react": "^16.9.49",
+		"cross-env": "^7.0.2",
+		"dotenv": "^8.2.0",
 		"json-server": "^0.16.1",
 		"typescript": "^4.0.2"
 	},

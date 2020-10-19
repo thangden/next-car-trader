@@ -8,7 +8,7 @@ export interface TeamProps {
 export default function Team({ names }: TeamProps) {
 	return (
 		<div>
-			<Link href="/server-site"><a>Server site</a></Link>
+			<Link href="/server-side"><a>Server site</a></Link>
 			{names.map(name => <h2 key={name}>{name}</h2>)}
 		</div>
 	);

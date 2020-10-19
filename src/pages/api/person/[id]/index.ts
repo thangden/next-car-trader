@@ -1,27 +1,27 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import sqlite from 'sqlite';
+import { openDB } from '../../../../openDB';
 
 export default async function getPersonById(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
-	const db = await sqlite.open('./mydb.sqlite');
+	const db = await openDB();
 
 	if (req.method === 'PUT') {
-		const statement = await db.prepare(
-			'UPDATE person SET name = ?, email = ? where id = ?'
-		);
-		const result = await statement.run(
+		const result = await db.run(
+			'update person set name = ?, email = ? where id = ?',
 			req.body.name,
 			req.body.email,
 			req.query.id
 		);
-		result.finalize();
+
+		console.log(result);
 	}
 
-	const person = await db.get('SELECT * FROM person where id = ?', [
-		req.query.id,
-	]);
+	const person = await db.get(
+		'select id, name, email from person where id = ?',
+		[req.query.id]
+	);
 
 	res.status(200).json(person);
 }
